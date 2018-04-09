@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body OnLoad="selectScroller(0);">
+		<center>
+			<form id="scrollform">
+				<select id="scroller" size=10>
+					<option>dsadadasd</option>
+					<option>dsadadd</option>
+					<option>dsadasdddddd</option>
+					<option>33333333333333333</option>
+					<option>4444444444</option>
+					<option>444444444</option>
+					<option>44444444444</option>
+					<option>5555555555</option>
+					<option>This select option list will</option>
+					<option>scroll text by copying</option>
+					<option>the top line to the bottom</option>
+					<option>line before deleting the</option>
+					<option>top line. This moves the</option>
+					<option>options up one line and</option>
+					<option>gives the impression of</option>
+					<option>scrolling.</option>
+					<option></option>
+					<option>You can leave as many</option>
+					<option>blank lines as you feel</option>
+					<option>necessary to give the</option>
+					<option>look of begining and</option>
+					<option>ending.</option>
+					<option></option>
+					<option>This script was written</option>
+					<option>in response to those</option>
+					<option>who wanted a news</option>
+					<option>scroller to work within</option>
+					<option>a table's cell and for</option>
+					<option>those who want old</option>
+					<option>browsers to also see</option>
+					<option>a scoller on the page.</option>
+					<option></option>
+					<option></option>
+				</select>
+			</form>
+		</center>
+		<script>
+			/*****其实就是不断地把第一个选项里的内容，移到最后面******/
+			function selectScroller(n) {
+				var optlist = document.getElementById("scroller"); //获取select元素
+				//使用第一个选项的内容，创建出一个新的选项来并放到最后面
+				optlist[optlist.length] = new Option(optlist[0].value, "", false, false);
+				optlist[0] = null; //移除第一个选项
+				optlist.selectedIndex = -1; //选择成第一个元素
+				//selectedIndex 属性可设置或返回下拉列表中被选 选项的索引号
+				n = (n + 1) % optlist.length; //准备操作下一个选项，若超过select元素长度则重头开始
+				// change the speed below: 1000 = 1 second.
+				setTimeout("selectScroller(" + n + ")", 1000); //继续调用
+				//+n+ 这个是因为setTimeout的第一个参数要求是 字符串 可是写成"selectScroller(n)"的话 该function接收的参数 是字符'n' 而不是 变量n了 所以写成 "selectScroller("+n+")" 就是在这里读出 变量n的内容 将其内容传到 selectScroller()函数中
+				//假设n=5 那么"selectScroller("+n+")"就相当于"selectScroller(5)"的意思了
+				//size  规定下拉列表中可见选项的数目
+			}
+		</script>
+	</body>
+
+</html>
