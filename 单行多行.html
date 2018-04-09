@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, target-densityDpi=(device-dpi)/2" />
+		<title>文字滚动</title>
+		<style type="text/css">
+			*{ margin:0px; padding:0px; -webkit-tap-highlight-color:rgba(0,0,0,0);  }
+			li{ list-style:none }
+			img{ border:none}
+			a{ color:#fff; display:block; text-decoration:none;}
+			/* -------------------------摇奖排行榜-----------------------------------  */
+			.topRec_List dl,.maquee{ width:90%; overflow:hidden; margin:0 auto; color:#7C7C7C}
+			.topRec_List dd{ float:left; text-align:center; border-bottom:1px solid #1B96EE; color:#1B96EE;}
+			.topRec_List dl dd{ width:100%; height:40px; line-height:40px; }
+			.maquee{ height:195px;}
+			.topRec_List ul{ width:100%; height:195px;}
+			.topRec_List li{ width:100%; height:38px; line-height:38px; text-align:center; font-size:12px; border-bottom: 1px dashed #aaa;}
+			.topRec_List li div{ float:left;width: 100%;}
+			
+			.apple,.aa{ width:90%; height:50px; overflow:hidden; margin:30px auto; border:1px solid #1B96EE;}
+			.apple a,.aa a{ width:100%; height:50px; line-height:50px; text-indent:20px; color:#1B96EE;}
+			.aa {word-wrap:break-word;line-height:50px;  color:#1B96EE;}
+		</style>
+	</head>
+	<body>
+		<!-- -------------摇奖排行榜---------------  -->
+		<div class="Top_Record">
+			<div class="topRec_List">
+				<dl>
+					<dd>标题标题标题标题标题标题标题标题标题标题标题标题标题标题</dd>
+				</dl>
+				<div class="maquee">
+					<ul>
+						<li>
+							<div>1111111111111111111111</div>
+						</li>
+						<li>
+							<div>222222222222222222222</div>
+						</li>
+						<li>
+							<div>3333333333333333333</div>
+						</li>
+						<li>
+							<div>44444444444444444</div>
+						</li>
+						<li>
+							<div>5555555555555555555555555</div>
+						</li>
+						<li>
+							<div>666666666666666</div>
+						</li>
+						<li>
+							<div>777777777777777777777</div>
+						</li>
+						<li>
+							<div>8888888888888888888888888</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="apple">
+			<ul>
+				<li>
+					<a href="#" target="_blank">你是我的小丫小苹果 </a>
+				</li>
+				<li>
+					<a href="#" target="_blank">怎么爱你都不嫌多</a>
+				</li>
+				<li>
+					<a href="#" target="_blank">红红的小脸儿温暖我的心窝 </a>
+				</li>
+				<li>
+					<a href="#" target="_blank">点亮我生命的火 火火火火</a>
+				</li>
+				<li>
+					<a href="#" target="_blank">你是我的小丫小苹果 </a>
+				</li>
+				<li>
+					<a href="#" target="_blank">就像天边最美的云朵</a>
+				</li>
+				<li>
+					<a href="#" target="_blank">春天又来到了花开满山坡 </a>
+				</li>
+				<li>
+					<a href="#" target="_blank">种下希望就会收获</a>
+				</li>
+			</ul>
+		</div>
+		<div class="aa">
+			<marquee direction="left">
+
+				求赞求评论求好评球动力啊~~~ 抽空整理需要很大的耐心的= = 让我继续有无偿奉献(免jq币下载)的动力→_→
+			</marquee>
+		</div>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			function autoScroll(obj) {
+				$(obj).find("ul").animate({
+					marginTop: "-39px"
+				}, 500, function() {
+					$(this).css({
+						marginTop: "0px"
+					}).find("li:first").appendTo(this);
+				})
+			}
+			$(function() {
+				setInterval('autoScroll(".maquee")', 3000);
+				setInterval('autoScroll(".apple")', 2000);
+			})
+		</script>
+	</body>
+</html>
